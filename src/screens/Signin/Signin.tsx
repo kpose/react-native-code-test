@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -11,7 +11,7 @@ import {
 import styles from "./styles";
 import { Input, LargeButton, Spinner } from "../../Components";
 import { useForm, Controller } from "react-hook-form";
-
+import { AuthContext } from "Navigation/AuthProvider";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -37,8 +37,10 @@ const Signin = () => {
     resolver: yupResolver(schema),
   });
 
+  const { login } = useContext(AuthContext);
+
   const onSubmit = (data: any) => {
-    console.log(data, "data");
+    login(data.email, data.password);
   };
 
   return (

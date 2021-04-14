@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "../../Utils";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
-} from "../../Utils/Helper";
+} from "Utils/Helper";
+import { COLORS } from "Utils";
 
 const styles = StyleSheet.create({
   container: {

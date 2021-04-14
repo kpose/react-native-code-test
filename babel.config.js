@@ -6,9 +6,8 @@ module.exports = function (api) {
       [
         "module-resolver",
         {
-          alias: {
-            screens: "./src/screens",
-          },
+          root: ["./src"],
+          extensions: [".tsx", ".ts", ".js", ".jsx", ".json"],
         },
       ],
     ],

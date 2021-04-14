@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
-
 import { Input, LargeButton, Spinner } from "../../Components";
 import { useForm, Controller } from "react-hook-form";
+import { AuthContext } from "Navigation/AuthProvider";
 
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -29,8 +29,10 @@ const Signup = () => {
     resolver: yupResolver(schema),
   });
 
+  const { register } = useContext(AuthContext);
+
   const onSubmit = (data: any) => {
-    console.log(data, "data");
+    register(data.email, data.password);
   };
 
   return (
