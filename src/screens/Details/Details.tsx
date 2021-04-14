@@ -9,12 +9,15 @@ import {
   Image,
 } from "react-native";
 import { heightPercentageToDP as hp } from "Utils/Helper";
-import { HomeNavigatorProps } from "../../Navigation/types";
+import { HomeNavigatorProps } from "Navigation/types";
+import { StatusBar } from "expo-status-bar";
+import { FontAwesome } from "@expo/vector-icons";
 import styles from "./styles";
+import { COLORS } from "Utils";
 
 const Details = ({ route }: HomeNavigatorProps) => {
   const [scrollY, setScrollY] = useState(new Animated.Value(0));
-  const data = route.params.data;
+  const { title, content, image } = route.params;
   const HEADER_EXPANDED_HEIGHT = hp(30);
   const HEADER_COLLASPED_HEIGHT = hp(10);
   const { width: SCREEN_WIDTH } = Dimensions.get("screen");
@@ -38,51 +41,58 @@ const Details = ({ route }: HomeNavigatorProps) => {
   });
 
   return (
-    <View style={styles.container}>
-      <Animated.View
-        style={[
-          styles.headerContainer,
-          { height: headerHeight, width: SCREEN_WIDTH },
-        ]}
-      >
-        <ImageBackground
-          style={{ height: "100%", width: "100%" }}
-          source={{ uri: data.imageUrl }}
+    <>
+      <StatusBar hidden />
+      <View style={styles.container}>
+        <Animated.View
+          style={[
+            styles.headerContainer,
+            { height: headerHeight, width: SCREEN_WIDTH },
+          ]}
         >
-          <Animated.Text
-            style={[styles.title, { opacity: headerTitleOpacity }]}
+          <ImageBackground
+            style={{ height: "100%", width: "100%" }}
+            source={{ uri: image }}
           >
-            {data.title}
-          </Animated.Text>
+            <Animated.Text
+              style={[styles.title, { opacity: headerTitleOpacity }]}
+            >
+              {title}
+            </Animated.Text>
 
-          <Animated.Text
-            style={[styles.titleee, { opacity: heroTitleOpacity }]}
-          >
-            {data.title}
-          </Animated.Text>
-        </ImageBackground>
-      </Animated.View>
+            {/* <FontAwesome
+              name="chevron-left"
+              size={25}
+              color={COLORS.LIGHT_BLUE}
+            /> */}
+            <Animated.Text
+              style={[styles.titleee, { opacity: heroTitleOpacity }]}
+            >
+              {title}
+            </Animated.Text>
+          </ImageBackground>
+        </Animated.View>
 
-      <ScrollView
-        contentContainerStyle={[
-          styles.scrollContainer,
-          { paddingTop: HEADER_EXPANDED_HEIGHT },
-        ]}
-        onScroll={Animated.event([
-          {
-            nativeEvent: {
-              contentOffset: {
-                y: scrollY,
+        <ScrollView
+          contentContainerStyle={[
+            styles.scrollContainer,
+            { paddingTop: HEADER_EXPANDED_HEIGHT },
+          ]}
+          onScroll={Animated.event([
+            {
+              nativeEvent: {
+                contentOffset: {
+                  y: scrollY,
+                },
               },
             },
-          },
-        ])}
-        scrollEventThrottle={16}
-      >
-        <Text>This is sub heading</Text>
-        <Text>{data.content}</Text>
-      </ScrollView>
-    </View>
+          ])}
+          scrollEventThrottle={16}
+        >
+          <Text>{content}</Text>
+        </ScrollView>
+      </View>
+    </>
   );
 };
 

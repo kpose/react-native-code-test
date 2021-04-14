@@ -1,9 +1,6 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import AuthStack from "./src/Navigation/AuthStack";
+import { StyleSheet } from "react-native";
 
-import { Signin, Signup } from "./src/screens";
 import Providers from "Navigation";
 
 const App = () => {

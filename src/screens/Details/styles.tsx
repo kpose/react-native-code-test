@@ -20,12 +20,16 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
+    flexWrap: "wrap",
+    marginTop: hp(4),
     fontSize: 30,
-
     fontWeight: "bold",
     color: COLORS.LIGHT_BLUE,
   },
+
   titleee: {
+    flexDirection: "row",
+    alignItems: "center",
     position: "absolute",
     bottom: 16,
     left: 16,

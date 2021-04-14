@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ActivityIndicator, View, StyleSheet, Dimensions } from "react-native";
-import { COLORS } from "../../Utils";
+import { COLORS } from "Utils";
 
 const { height, width } = Dimensions.get("window");
 

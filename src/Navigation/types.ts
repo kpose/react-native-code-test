@@ -9,7 +9,7 @@ export type AuthStackParamList = {
 
 export type HomeStackParamList = {
  Home: undefined;
- Details: {data: {}}
+ Details: {title: string, image: string, content: string}
 };
 
 type AuthStackNavigationProp = StackNavigationProp<

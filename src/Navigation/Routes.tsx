@@ -11,8 +11,6 @@ export default function Routes() {
   const [loading, setLoading] = useState(true);
   const [initializing, setInitializing] = useState(true);
 
-  console.log(spinner);
-
   function onAuthStateChanged(user: any) {
     setUser(user);
     if (initializing) setInitializing(false);

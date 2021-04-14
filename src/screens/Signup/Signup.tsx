@@ -1,14 +1,13 @@
 import React, { useState, useContext } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
-import { Input, LargeButton, Spinner } from "../../Components";
 import { useForm, Controller } from "react-hook-form";
 import { AuthContext } from "Navigation/AuthProvider";
-
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { COLORS } from "../../Utils";
-import { CustomStyles } from "../../Utils/Style";
+import { Input, LargeButton, Spinner } from "Components";
+import { COLORS } from "Utils";
+import { CustomStyles } from "Utils/Style";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),

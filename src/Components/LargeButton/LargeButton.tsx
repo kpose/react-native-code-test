@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { CustomStyles } from "../../Utils/Style";
+import { CustomStyles } from "Utils/Style";
 
 import styles from "./styles";
 

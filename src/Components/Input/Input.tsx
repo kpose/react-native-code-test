@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TextInput } from "react-native";
-import { COLORS } from "../../Utils";
-import { CustomStyles } from "../../Utils/Style";
+import { COLORS } from "Utils";
+import { CustomStyles } from "Utils/Style";
 
 import styles from "./styles";
 
