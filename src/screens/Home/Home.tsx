@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useCallback, useRef } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 import {
   Text,
   TouchableOpacity,
@@ -13,12 +19,17 @@ import { Card } from "Components";
 import styles from "./styles";
 import { StatusBar } from "expo-status-bar";
 import { heightPercentageToDP as hp } from "Utils/Helper";
-import LottieView from "lottie-react-native";
+import { ThemeContext } from "Context/ThemeContext";
+import { COLORS } from "Utils";
+ThemeContext;
+//import LottieView from "lottie-react-native";
 
 const data = require("data/blogData.json");
 
 const Home = ({ navigation }: HomeNavigatorProps) => {
   const { user, logout } = useContext(AuthContext);
+  const themeContext = useContext(ThemeContext);
+  const [isEnabled, setIsEnabled] = useState(false);
   const Item_Height = hp(24);
 
   const getItemLatout = useCallback(
@@ -47,13 +58,24 @@ const Home = ({ navigation }: HomeNavigatorProps) => {
     []
   );
 
+  const toggle = () => {
+    themeContext.toggleTheme;
+    setIsEnabled((previousState) => !previousState);
+  };
+
   const keyExtractor = useCallback((item) => item.views.toString(), []);
   return (
     <>
       <StatusBar hidden />
       <SafeAreaView style={styles.container}>
         <View style={styles.switchContainer}>
-          <Switch trackColor={{ false: "red", true: "blue" }} />
+          <Text style={styles.welcomeText}>Welcome, have fun with us!</Text>
+          <Switch
+            trackColor={{ false: COLORS.WARNING, true: COLORS.BLACK }}
+            thumbColor={isEnabled ? COLORS.LIGHT_BLUE : COLORS.DARK_GRAY}
+            onValueChange={toggle}
+            value={isEnabled}
+          />
         </View>
         <FlatList
           data={data.blogs}

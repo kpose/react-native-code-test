@@ -8,8 +8,8 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    height: hp(24),
+    //alignItems: "center",
+    //height: hp(24),
     width: wp(95),
     backgroundColor: COLORS.SECONDARY_BACKGROUND,
     marginBottom: hp(3),
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     elevation: 14,
   },
   image: {
-    height: hp(20),
+    height: hp(22),
     width: "100%",
     borderRadius: wp(2),
     resizeMode: "cover",
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop: hp(1),
     marginBottom: hp(1),
+    textAlign: "center",
     fontSize: 20,
     fontWeight: "bold",
     color: COLORS.WHITE,

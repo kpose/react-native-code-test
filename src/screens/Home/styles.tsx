@@ -1,13 +1,16 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "Utils";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "Utils/Helper";
+import { CustomStyles } from "Utils/Style";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    //backgroundColor: COLORS.DARK_GRAY,
   },
   touch: {
     height: hp(4),
@@ -15,10 +18,17 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
   },
   switchContainer: {
-    position: "absolute",
+    flexDirection: "row",
+    alignItems: "center",
     right: wp(5),
-    top: hp(1),
-    marginBottom: hp(1),
+    marginBottom: 15,
+  },
+  welcomeText: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: COLORS.LIGHT_PURPLE,
+
+    padding: 5,
   },
 });
 

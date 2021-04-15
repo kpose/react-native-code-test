@@ -6,7 +6,7 @@ import {
   Animated,
   Dimensions,
   ImageBackground,
-  Image,
+  TouchableOpacity,
 } from "react-native";
 import { heightPercentageToDP as hp } from "Utils/Helper";
 import { HomeNavigatorProps } from "Navigation/types";
@@ -15,7 +15,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import styles from "./styles";
 import { COLORS } from "Utils";
 
-const Details = ({ route }: HomeNavigatorProps) => {
+const Details = ({ route, navigation }: HomeNavigatorProps) => {
   const [scrollY, setScrollY] = useState(new Animated.Value(0));
   const { title, content, image } = route.params;
   const HEADER_EXPANDED_HEIGHT = hp(30);
@@ -54,22 +54,41 @@ const Details = ({ route }: HomeNavigatorProps) => {
             style={{ height: "100%", width: "100%" }}
             source={{ uri: image }}
           >
-            <Animated.Text
-              style={[styles.title, { opacity: headerTitleOpacity }]}
+            <Animated.View
+              style={[styles.backIcon, { opacity: heroTitleOpacity }]}
             >
-              {title}
-            </Animated.Text>
+              <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+                <FontAwesome
+                  name="chevron-left"
+                  size={25}
+                  color={COLORS.LIGHT_BLUE}
+                />
+              </TouchableOpacity>
+            </Animated.View>
 
-            {/* <FontAwesome
-              name="chevron-left"
-              size={25}
-              color={COLORS.LIGHT_BLUE}
-            /> */}
             <Animated.Text
               style={[styles.titleee, { opacity: heroTitleOpacity }]}
             >
               {title}
             </Animated.Text>
+
+            <Animated.View
+              style={[styles.animatedIcon, { opacity: headerTitleOpacity }]}
+            >
+              <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+                <FontAwesome
+                  name="chevron-left"
+                  size={25}
+                  color={COLORS.LIGHT_BLUE}
+                />
+              </TouchableOpacity>
+
+              <Animated.Text
+                style={[styles.title, { opacity: headerTitleOpacity }]}
+              >
+                {title}
+              </Animated.Text>
+            </Animated.View>
           </ImageBackground>
         </Animated.View>
 

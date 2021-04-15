@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "Utils";
-import { heightPercentageToDP as hp } from "Utils/Helper";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "Utils/Helper";
 
 const styles = StyleSheet.create({
   container: {
@@ -21,10 +24,15 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
     flexWrap: "wrap",
-    marginTop: hp(4),
+    marginLeft: wp(4),
     fontSize: 30,
     fontWeight: "bold",
     color: COLORS.LIGHT_BLUE,
+  },
+  animatedIcon: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: hp(4),
   },
 
   titleee: {
@@ -36,6 +44,19 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: COLORS.LIGHT_BLUE,
+  },
+  backIcon: {
+    position: "absolute",
+    zIndex: 1,
+    left: wp(5),
+    top: hp(3),
+  },
+
+  image: {
+    height: hp(22),
+    width: "100%",
+    borderRadius: wp(2),
+    resizeMode: "cover",
   },
 });
 
