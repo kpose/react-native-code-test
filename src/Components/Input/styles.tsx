@@ -6,16 +6,12 @@ import {
 } from "../../Utils/Helper";
 
 const styles = StyleSheet.create({
-  container: {
-    //flex: 1,
-  },
+  container: {},
   input: {
     width: wp(75),
-    height: hp(6),
-    borderRadius: wp(10),
-    color: COLORS.WHITE,
+    //height: hp(6),
+    //borderRadius: wp(10),
     textAlign: "center",
-    backgroundColor: COLORS.DARK_GRAY,
     marginTop: hp(2),
     borderWidth: wp(0.3),
   },

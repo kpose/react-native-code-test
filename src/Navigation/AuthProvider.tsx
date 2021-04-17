@@ -1,47 +1,53 @@
 import React, { createContext, useState } from "react";
 import Firebase from "Firebase/config";
-import { useNavigation } from "@react-navigation/native";
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }: any) => {
   const [user, setUser] = useState(null);
   const [spinner, setSpinner] = useState(false);
-  //const navigation = useNavigation();
+  const [error, setError] = useState("");
+
   return (
     <AuthContext.Provider
       value={{
         user,
         setUser,
         spinner,
+        error,
         login: async (email: string, password: string) => {
+          setSpinner(true);
           try {
-            setSpinner(true);
             await Firebase.auth()
               .signInWithEmailAndPassword(email, password)
               .then((data) => {
-                setSpinner(false);
-                //navigation.navigate("Home");
+                console.log(data);
               });
           } catch (e) {
-            console.log(e);
+            setSpinner(false);
+            setError(e.message);
+            //console.log(e.message);
           }
         },
         register: async (email: string, password: string) => {
+          setSpinner(true);
           try {
-            setSpinner(true);
-            await Firebase.auth()
-              .createUserWithEmailAndPassword(email, password)
-              .then((data) => {
-                setSpinner(false);
-                //navigation.navigate("Home");
-              });
+            await Firebase.auth().createUserWithEmailAndPassword(
+              email,
+              password
+            );
           } catch (e) {
-            console.log(e);
+            setSpinner(false);
+            setError(e.message);
+            //console.log(e);
           }
         },
         logout: async () => {
           try {
-            await Firebase.auth().signOut();
+            await Firebase.auth()
+              .signOut()
+              .then(() => {
+                setSpinner(false);
+              });
           } catch (e) {
             console.error(e);
           }

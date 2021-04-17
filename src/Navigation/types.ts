@@ -20,13 +20,13 @@ type AuthStackNavigationProp = StackNavigationProp<
 export type HomeStackNavigationProp = StackNavigationProp<
   HomeStackParamList,
   'Home'
->;
+>; 
 
 type AuthStackRouteProp = RouteProp<AuthStackParamList, 'Signin'>;
 
-type HomeStackRouteProp = RouteProp<HomeStackParamList, 'Home'>;
+type HomeStackRouteProp = RouteProp<HomeStackParamList, 'Details'>;
 
-type Props = {
+export type AuthStackProps = {
   navigation: AuthStackNavigationProp;
   route: AuthStackRouteProp;
 };

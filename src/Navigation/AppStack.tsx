@@ -16,7 +16,7 @@ function AppStack() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        //gestureEnabled: false,
+        gestureEnabled: false,
         cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
       }}
     >

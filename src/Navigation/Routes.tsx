@@ -13,18 +13,14 @@ export default function Routes() {
 
   function onAuthStateChanged(user: any) {
     setUser(user);
-    if (initializing) setInitializing(false);
-    setLoading(false);
+    /* if (initializing) setInitializing(false);
+    setLoading(false); */
   }
 
   useEffect(() => {
     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber;
   }, []);
-
-  if (spinner) {
-    return <Spinner />;
-  }
 
   return (
     <NavigationContainer>

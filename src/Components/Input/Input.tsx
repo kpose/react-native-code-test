@@ -1,7 +1,9 @@
 import React from "react";
-import { View, Text, TextInput } from "react-native";
+import { TextInput } from "react-native";
 import { COLORS } from "Utils";
 import { CustomStyles } from "Utils/Style";
+
+import { Layout, Text, Input as Inputt } from "@ui-kitten/components";
 
 import styles from "./styles";
 
@@ -20,8 +22,8 @@ interface InputProps {
 
 const Input = (props: InputProps) => {
   return (
-    <View>
-      <TextInput
+    <Layout>
+      <Inputt
         defaultValue={props.defaultValue}
         style={[
           styles.input,
@@ -33,7 +35,7 @@ const Input = (props: InputProps) => {
         ]}
         placeholder={props.placeholder}
         secureTextEntry={props.secureTextEntry}
-        placeholderTextColor={COLORS.WHITE}
+        //placeholderTextColor={COLORS.WHITE}
         onChangeText={props.onChangeText}
         keyboardType={props.keyboardType}
         autoFocus={props.autoFocus}
@@ -45,7 +47,7 @@ const Input = (props: InputProps) => {
       {props.errorText && (
         <Text style={styles.errorText}>{props.errorText}</Text>
       )}
-    </View>
+    </Layout>
   );
 };
 

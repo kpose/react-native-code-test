@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     zIndex: 9999,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "red",
+    backgroundColor: COLORS.DARK_GRAY,
   },
   scrollContainer: {
     padding: 16,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     marginLeft: wp(4),
     fontSize: 30,
     fontWeight: "bold",
-    color: COLORS.LIGHT_BLUE,
+    color: COLORS.LIGHT_PURPLE,
   },
   animatedIcon: {
     flexDirection: "row",
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     left: 16,
     fontSize: 30,
     fontWeight: "bold",
-    color: COLORS.LIGHT_BLUE,
+    color: COLORS.LIGHT_PURPLE,
   },
   backIcon: {
     position: "absolute",
@@ -57,6 +57,12 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: wp(2),
     resizeMode: "cover",
+  },
+  contentContainer: {
+    marginTop: hp(1),
+  },
+  content: {
+    //textAlign: "center",
   },
 });
 

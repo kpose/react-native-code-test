@@ -10,8 +10,9 @@ const Stack = createStackNavigator<AuthStackParamList>();
 function AuthStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Signin" component={Signin} />
+      <Stack.Screen name="Signup" component={Signup} />
+
       <Stack.Screen name="AppStack" component={AppStack} />
     </Stack.Navigator>
   );

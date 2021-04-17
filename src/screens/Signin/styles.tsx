@@ -8,7 +8,7 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.PRIMARY,
+    //backgroundColor: COLORS.PRIMARY,
     //justifyContent: "center",
   },
   header: {
@@ -28,13 +28,20 @@ const styles = StyleSheet.create({
   forgotContainer: {
     marginTop: hp(2),
     marginLeft: wp(7),
-    marginBottom: hp(4),
+    marginBottom: hp(2),
   },
   forgot: {
     color: COLORS.LIGHT_BLUE,
   },
   buttonContainer: {
     alignItems: "center",
+  },
+  errorContainer: {
+    textAlign: "center",
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 5,
+    color: COLORS.WARNING,
   },
 });
 

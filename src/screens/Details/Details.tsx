@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import {
   View,
-  Text,
   ScrollView,
   Animated,
   Dimensions,
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
+import { Layout, Text } from "@ui-kitten/components";
 import { heightPercentageToDP as hp } from "Utils/Helper";
 import { HomeNavigatorProps } from "Navigation/types";
 import { StatusBar } from "expo-status-bar";
 import { FontAwesome } from "@expo/vector-icons";
 import styles from "./styles";
 import { COLORS } from "Utils";
+console.disableYellowBox = true;
 
 const Details = ({ route, navigation }: HomeNavigatorProps) => {
   const [scrollY, setScrollY] = useState(new Animated.Value(0));
@@ -43,7 +44,7 @@ const Details = ({ route, navigation }: HomeNavigatorProps) => {
   return (
     <>
       <StatusBar hidden />
-      <View style={styles.container}>
+      <Layout style={styles.container}>
         <Animated.View
           style={[
             styles.headerContainer,
@@ -53,6 +54,7 @@ const Details = ({ route, navigation }: HomeNavigatorProps) => {
           <ImageBackground
             style={{ height: "100%", width: "100%" }}
             source={{ uri: image }}
+            //source={require("../../data/emptyImage.jpg")}
           >
             <Animated.View
               style={[styles.backIcon, { opacity: heroTitleOpacity }]}
@@ -61,7 +63,7 @@ const Details = ({ route, navigation }: HomeNavigatorProps) => {
                 <FontAwesome
                   name="chevron-left"
                   size={25}
-                  color={COLORS.LIGHT_BLUE}
+                  color={COLORS.LIGHT_PURPLE}
                 />
               </TouchableOpacity>
             </Animated.View>
@@ -79,7 +81,7 @@ const Details = ({ route, navigation }: HomeNavigatorProps) => {
                 <FontAwesome
                   name="chevron-left"
                   size={25}
-                  color={COLORS.LIGHT_BLUE}
+                  color={COLORS.LIGHT_PURPLE}
                 />
               </TouchableOpacity>
 
@@ -108,9 +110,11 @@ const Details = ({ route, navigation }: HomeNavigatorProps) => {
           ])}
           scrollEventThrottle={16}
         >
-          <Text>{content}</Text>
+          <Layout style={styles.contentContainer}>
+            <Text style={styles.content}>{content}</Text>
+          </Layout>
         </ScrollView>
-      </View>
+      </Layout>
     </>
   );
 };

@@ -8,28 +8,17 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //alignItems: "center",
-    //height: hp(24),
-    width: wp(95),
-    backgroundColor: COLORS.SECONDARY_BACKGROUND,
+    width: wp(90),
     marginBottom: hp(3),
-    borderRadius: wp(2),
-
-    /* shadowColor: "yellow",
-    shadowOffset: {
-      width: 0,
-      height: 7,
-    },
-    shadowOpacity: 0.41,
-    shadowRadius: 9.11, */
-
-    elevation: 14,
+    borderRadius: 10,
+    elevation: 24,
   },
   image: {
     height: hp(22),
     width: "100%",
-    borderRadius: wp(2),
     resizeMode: "cover",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   title: {
     marginTop: hp(1),
@@ -37,7 +26,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20,
     fontWeight: "bold",
-    color: COLORS.WHITE,
+  },
+  titleHeader: {
+    backgroundColor: COLORS.LIGHT_BLUE,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
 });
 

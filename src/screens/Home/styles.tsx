@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   },
   switchContainer: {
     flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
     right: wp(5),
     marginBottom: 15,
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 20,
     fontWeight: "700",
-    color: COLORS.LIGHT_PURPLE,
+    //color: COLORS.WHITE,
 
     padding: 5,
   },
